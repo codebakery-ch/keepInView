@@ -8,8 +8,8 @@
         },
         link: function (scope, element, attrs) {
             var doToggle = function () {
-                elmOffset = $(element).offset();
-                posCheck = window.pageYOffset < elmOffset.top;
+                var elmOffset = $(element).offset();
+                var posCheck = window.pageYOffset < elmOffset.top;
                 $(element).toggleClass(scope.hideClass, posCheck);
             };
             doToggle();
