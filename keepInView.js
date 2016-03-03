@@ -7,10 +7,6 @@
             toggleClass: '@' // class to toggle when after @elm and after @hideAfter
         },
         link: function (scope, element, attrs) {
-
-            var elmOffset = $(element).offset();
-            var posCheck = window.pageYOffset < elmOffset.top;
-            $(element).toggleClass(scope.hideClass, posCheck);
             var doToggle = function () {
                 elmOffset = $(element).offset();
                 posCheck = window.pageYOffset < elmOffset.top;
