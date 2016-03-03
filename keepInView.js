@@ -10,7 +10,7 @@
             var doToggle = function () {
                 var elmOffset = $(element).offset();
                 var posCheck = window.pageYOffset < elmOffset.top;
-                $(element).toggleClass(scope.hideClass, posCheck);
+                $(element).toggleClass(scope.toggleClass, posCheck);
             };
             doToggle();
             angular.element($window).bind("scroll resize", function () {
