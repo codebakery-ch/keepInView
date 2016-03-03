@@ -9,7 +9,7 @@
         link: function (scope, element, attrs) {
             var doToggle = function () {
                 var elmOffset = $(element).offset();
-                var posCheck = window.pageYOffset < elmOffset.top;
+                var posCheck = window.pageYOffset < (elmOffset.top + parseFloat(scope.togglePos));
                 $(element).toggleClass(scope.toggleClass, posCheck);
             };
             doToggle();
