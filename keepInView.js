@@ -11,13 +11,13 @@
             var doToggle = function (smallWindow) {
                 if (!smallWindow) {
                     var elmOffset = $(element).offset();
-                    var posCheck = window.pageYOffset < (elmOffset.top + parseFloat(scope.togglePos));
+                    var posCheck = $window.pageYOffset < (elmOffset.top + parseFloat(scope.togglePos));
                     $(element).toggleClass(scope.toggleClass, posCheck);
                 }
             };
-           doToggle(window.innerWidth <= scope.screenSize);
+           doToggle($window.innerWidth <= scope.screenSize);
             angular.element($window).bind("scroll resize", function () {
-                doToggle(window.innerWidth <= scope.screenSize);
+                doToggle($window.innerWidth <= scope.screenSize);
             });
         }
     };
