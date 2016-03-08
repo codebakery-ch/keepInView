@@ -4,17 +4,20 @@
         scope: {
             elm: '@', // elm to check offset for
             togglePos: '@', // value after which the element gets a new class
-            toggleClass: '@' // class to toggle when after @elm and after @hideAfter
+            toggleClass: '@', // class to toggle when after @elm and after @hideAfter
+            screenSize: '@' // limit of the screen size where script applies
         },
         link: function (scope, element, attrs) {
-            var doToggle = function () {
-                var elmOffset = $(element).offset();
-                var posCheck = window.pageYOffset < (elmOffset.top + parseFloat(scope.togglePos));
-                $(element).toggleClass(scope.toggleClass, posCheck);
+            var doToggle = function (smallWindow) {
+                if (!smallWindow) {
+                    var elmOffset = $(element).offset();
+                    var posCheck = window.pageYOffset < (elmOffset.top + parseFloat(scope.togglePos));
+                    $(element).toggleClass(scope.toggleClass, posCheck);
+                }
             };
-            doToggle();
+           doToggle(window.innerWidth <= scope.screenSize);
             angular.element($window).bind("scroll resize", function () {
-                doToggle();
+                doToggle(window.innerWidth <= scope.screenSize);
             });
         }
     };
